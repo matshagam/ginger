@@ -2,3 +2,11 @@ $primary-background: #f8f6f4;
 $primary-color: #000;
 $secondary-color: #6c6a68;
 $third-color: #c0a064;
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+}

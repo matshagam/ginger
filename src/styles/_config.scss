@@ -1,0 +1,11 @@
+@mixin mediaMd {
+  @media screen and (max-width: 736px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (max-width: 1170px) {
+    @content;
+  }
+}

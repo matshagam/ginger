@@ -1,0 +1,49 @@
+@import 'config';
+
+@include mediaMd {
+  .cover-bg {
+    height: 380px !important;
+    width: 380px !important;
+    margin: -107px 0 0 auto !important;
+    opacity: 0.5 !important;
+  }
+  .menu {
+    flex-flow: column;
+    position: fixed !important;
+    align-items: center;
+    .nav {
+      display: none !important;
+    }
+    .social {
+      justify-content: center;
+      background-image: url(../img/paw-solid.svg);
+      width: 50px;
+      opacity: 0.4;
+      a {
+        display: none;
+      }
+    }
+    .social:hover {
+      opacity: 1;
+      transition: opacity 0.07s;
+      -webkit-transition: opacity 0.07s;
+      -moz-transition: opacity 0.07s;
+      -ms-transition: opacity 0.07s;
+      -o-transition: opacity 0.07s;
+    }
+  }
+}
+
+@include mediaLg {
+  .container {
+    width: 100vw !important;
+  }
+  .nav {
+    flex-flow: column;
+    a {
+      margin: 16px 0 10px 20px;
+      height: 21px;
+      text-align: left !important;
+    }
+  }
+}
