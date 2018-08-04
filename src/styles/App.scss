@@ -29,42 +29,117 @@ a {
 .container {
   width: 1170px;
   margin: 0 auto;
+  @media screen and (max-width: 1170px) {
+    width: 100%;
+  }
 }
 
 // Cover component
 
 .cover {
-  &-bg {
-    background: url(../img/cover-image.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    opacity: 0.4;
+  height: 100vh;
+  &-bg-box {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+    .cover-bg {
+      background: url(../img/cover-image.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 700px;
+      width: 700px;
+      border-radius: 50%;
+      opacity: 0.3;
+      position: fixed;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
   }
   .menu {
     display: flex;
     position: absolute;
-    top: 0;
     justify-content: space-between;
     align-items: center;
+    margin-top: 33px;
+    top: 0;
+    left: 0;
+    right: 0;
     .nav {
       display: flex;
+      align-items: center;
       a {
-        padding: 5px;
-        color: $secondary-color;
+        text-align: center;
         font-size: 1.6em;
         font-weight: bold;
+        color: $secondary-color;
+        width: 100px;
+        transition: font-size 0.07s, color 0.07s;
+        -webkit-transition: font-size 0.07s, color 0.07s;
+        -moz-transition: font-size 0.07s, color 0.07s;
+        -ms-transition: font-size 0.07s, color 0.07s;
+        -o-transition: font-size 0.07s, color 0.07s;
+      }
+      a:hover {
+        font-size: 1.9em;
+        color: $third-color;
       }
     }
     .social {
-      float: right;
+      height: 50px;
+      display: flex;
+      align-items: center;
       a {
-        padding: 5px;
+        text-align: center;
+        width: 60px;
         svg {
           height: 16px;
           color: $secondary-color;
+          transition: height 0.07s, color 0.07s;
+          -webkit-transition: height 0.07s, color 0.07s;
+          -moz-transition: height 0.07s, color 0.07s;
+          -ms-transition: height 0.07s, color 0.07s;
+          -o-transition: height 0.07s, color 0.07s;
         }
+        svg:hover {
+          height: 35px;
+          color: $third-color;
+        }
+      }
+    }
+  }
+  .main {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 46vh;
+    &-title {
+      display: flex;
+      flex-flow: column;
+      margin-right: 22px;
+      h1 {
+        font-size: 3.65em;
+        margin-left: 105px;
+      }
+      p {
+        font-size: 4em;
+        margin: 10px 0 0 0;
+        background: $third-color;
+        text-transform: uppercase;
+        color: $primary-background;
+      }
+      span {
+        text-transform: uppercase;
+        color: $third-color;
+        background: $primary-background;
       }
     }
   }
