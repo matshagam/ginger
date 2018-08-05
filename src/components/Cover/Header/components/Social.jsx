@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const Social = ({ onClick }) => {
+export const Social = () => {
   return (
-    <div onClick={onClick} className="social">
+    <div className="social">
       <a href="">
         <svg
           aria-hidden="true"

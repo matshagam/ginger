@@ -1,11 +1,11 @@
 #nav a.show:nth-child(1) {
-  transition-delay: 0.1s; }
+  transition-delay: 0.13s; }
 
 #nav a.show:nth-child(2) {
-  transition-delay: 0.2s; }
+  transition-delay: 0.26s; }
 
 #nav a.show:nth-child(3) {
-  transition-delay: 0.3s; }
+  transition-delay: 0.39s; }
 
 @media screen and (max-width: 320px) {
   .cover .main {
@@ -14,18 +14,23 @@
       margin-right: 19px !important; } }
 
 @media screen and (max-width: 425px) {
-  .cover-bg-box .cover-bg {
-    height: 320px !important;
-    width: 320px !important; }
-  .main {
+  .cover-bg-box {
+    align-items: initial !important;
+    margin-top: 37%; }
+    .cover-bg-box .cover-bg {
+      height: 320px !important;
+      width: 320px !important; }
+  .cover .main {
     padding-top: 11% !important; }
-    .main .main-title {
+    .cover .main .main-title {
       margin-right: 43px !important; }
-      .main .main-title h1 {
+      .cover .main .main-title .nav-btn {
+        margin: -28px 0 0 20px !important; }
+      .cover .main .main-title h1 {
         font-size: 2em !important;
         margin-left: 81px !important;
         opacity: 0.3 !important; }
-      .main .main-title .label {
+      .cover .main .main-title .label {
         font-size: 2.5em !important; } }
 
 @media screen and (max-width: 736px) {
@@ -33,25 +38,23 @@
     height: 380px !important;
     width: 380px !important;
     opacity: 0.5 !important; }
-  .menu {
+  .cover .menu {
     flex-flow: column;
     position: fixed !important;
     align-items: center; }
-    .menu .nav {
+    .cover .menu .nav {
       visibility: hidden;
       position: relative;
-      top: 69vh;
-      transform: translate3d(0, 100px, 0);
-      transition: all 0.5s ease-out;
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -ms-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out; }
-      .menu .nav.show {
+      top: 65vh;
+      transform: translate3d(0, -130px, 0);
+      transition: transform 1s; }
+      .cover .menu .nav.show {
         visibility: visible;
-        transform: translate3d(0, -11px, 0); }
-      .menu .nav a {
+        transform: translate3d(0, -27px, 0); }
+      .cover .menu .nav a.show {
+        visibility: visible;
         background: rgba(108, 106, 104, 0.1);
+        opacity: 0.4;
         margin: 4px;
         width: 100px !important;
         height: 100px;
@@ -59,17 +62,15 @@
         align-items: center;
         display: flex;
         justify-content: center; }
-    .menu .social {
-      justify-content: center;
-      background-image: url(../img/paw-solid.svg);
-      width: 50px;
-      opacity: 0.4;
-      position: fixed; }
-      .menu .social a {
-        display: none; }
-    .menu .social:hover {
-      opacity: 1;
-      transition: opacity 0.07s; } }
+        .cover .menu .nav a.show:nth-child(2) {
+          margin-top: 56px; }
+    .cover .menu .social {
+      display: none !important; }
+  .cover .main .nav-btn {
+    visibility: visible !important; }
+  .cover .main .nav-btn:hover {
+    opacity: 1;
+    transition: opacity 0.07s; } }
 
 @media screen and (max-width: 1170px) {
   .container {
@@ -100,7 +101,8 @@ a {
   margin: 0 auto; }
 
 .cover {
-  height: 100vh; }
+  height: 100vh;
+  position: fixed; }
   .cover-bg-box {
     display: flex;
     width: 100%;
@@ -119,11 +121,7 @@ a {
       border-radius: 50%;
       border: 5px solid #6c6a68;
       opacity: 0.7;
-      transition: all 0.5s ease-out;
-      -webkit-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -ms-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out; }
+      transition: all 0.5s ease-out; }
   .cover .menu {
     display: flex;
     justify-content: space-between;
@@ -137,7 +135,7 @@ a {
         font-weight: bold;
         color: #6c6a68;
         width: 100px;
-        transition: all 0.07s; }
+        transition: color 0.07s, font-size 0.07s; }
       .cover .menu .nav a:hover {
         font-size: 1.9em;
         color: #c0a064; }
@@ -159,15 +157,17 @@ a {
     display: flex;
     justify-content: flex-end;
     padding-top: 20%;
-    transition: all 0.5s ease-out;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out; }
+    transition: all 0.5s ease-out; }
     .cover .main-title {
       display: flex;
       flex-flow: column;
       margin-right: 22px; }
+      .cover .main-title .nav-btn {
+        width: 50px;
+        opacity: 0.4;
+        visibility: hidden;
+        position: fixed;
+        margin: -15px 0 0 32px; }
       .cover .main-title h1 {
         font-size: 3.65em;
         margin-left: 107px;

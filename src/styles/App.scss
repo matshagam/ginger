@@ -36,6 +36,7 @@ a {
 
 .cover {
   height: 100vh;
+  position: fixed;
   &-bg-box {
     display: flex;
     width: 100%;
@@ -70,7 +71,7 @@ a {
         font-weight: bold;
         color: $secondary-color;
         width: 100px;
-        transition: all 0.07s;
+        transition: color 0.07s, font-size 0.07s;
       }
       a:hover {
         font-size: 1.9em;
@@ -105,6 +106,13 @@ a {
       display: flex;
       flex-flow: column;
       margin-right: 22px;
+      .nav-btn {
+        width: 50px;
+        opacity: 0.4;
+        visibility: hidden;
+        position: fixed;
+        margin: -15px 0 0 32px;
+      }
       h1 {
         font-size: 3.65em;
         margin-left: 107px;

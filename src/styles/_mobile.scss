@@ -2,7 +2,7 @@
 
 @for $x from 1 through 3 {
   #nav a.show:nth-child(#{$x}) {
-    transition-delay: $x * 0.1s;
+    transition-delay: $x * 0.13s;
   }
 }
 
@@ -18,72 +18,84 @@
 }
 
 @include mediaSm {
-  .cover-bg-box {
-    .cover-bg {
-      height: 320px !important;
-      width: 320px !important;
-    }
-  }
-  .main {
-    padding-top: 11% !important;
-    .main-title {
-      margin-right: 43px !important;
-      h1 {
-        font-size: 2em !important;
-        margin-left: 81px !important;
-        opacity: 0.3 !important;
+  .cover {
+    &-bg-box {
+      align-items: initial !important;
+      margin-top: 37%;
+      .cover-bg {
+        height: 320px !important;
+        width: 320px !important;
       }
-      .label {
-        font-size: 2.5em !important;
+    }
+    .main {
+      padding-top: 11% !important;
+      .main-title {
+        margin-right: 43px !important;
+        .nav-btn {
+          margin: -28px 0 0 20px !important;
+        }
+        h1 {
+          font-size: 2em !important;
+          margin-left: 81px !important;
+          opacity: 0.3 !important;
+        }
+        .label {
+          font-size: 2.5em !important;
+        }
       }
     }
   }
 }
 
 @include mediaMd {
-  .cover-bg {
-    height: 380px !important;
-    width: 380px !important;
-    opacity: 0.5 !important;
-  }
-  .menu {
-    flex-flow: column;
-    position: fixed !important;
-    align-items: center;
-    .nav {
-      visibility: hidden;
-      position: relative;
-      top: 69vh;
-      transform: translate3d(0, 100px, 0);
-      @include easeOut;
-      &.show {
-        visibility: visible;
-        transform: translate3d(0, -11px, 0);
+  .cover {
+    &-bg {
+      height: 380px !important;
+      width: 380px !important;
+      opacity: 0.5 !important;
+    }
+    .menu {
+      flex-flow: column;
+      position: fixed !important;
+      align-items: center;
+      .nav {
+        visibility: hidden;
+        position: relative;
+        top: 65vh;
+        transform: translate3d(0, -130px, 0);
+        transition: transform 1s;
+        &.show {
+          visibility: visible;
+          transform: translate3d(0, -27px, 0);
+        }
+        a.show {
+          visibility: visible;
+          background: rgba($color: $secondary-color, $alpha: 0.1);
+          opacity: 0.4;
+          margin: 4px;
+          width: 100px !important;
+          height: 100px;
+          border-radius: 50%;
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          &:nth-child(2) {
+            margin-top: 56px;
+          }
+        }
       }
-      a {
-        background: rgba($color: $secondary-color, $alpha: 0.1);
-        margin: 4px;
-        width: 100px !important;
-        height: 100px;
-        border-radius: 50%;
-        align-items: center;
-        display: flex;
-        justify-content: center;
+      .social {
+        display: none !important;
       }
     }
-    .social {
-      justify-content: center;
-      background-image: url(../img/paw-solid.svg);
-      width: 50px;
-      opacity: 0.4;
-      position: fixed;
-      a {
-        display: none;
+    .main {
+      .nav-btn {
+        visibility: visible !important;
       }
-    }
-    .social:hover {
-      opacity: 1;
-      transition: opacity 0.07s;
+      .nav-btn:hover {
+        opacity: 1;
+        transition: opacity 0.07s;
+      }
     }
   }
 }
