@@ -1,10 +1,49 @@
 @import 'config';
 
+@for $x from 1 through 3 {
+  #nav a.show:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
+
+@include mediaSsm {
+  .cover {
+    .main {
+      padding-top: 14% !important;
+      .main-title {
+        margin-right: 19px !important;
+      }
+    }
+  }
+}
+
+@include mediaSm {
+  .cover-bg-box {
+    .cover-bg {
+      height: 320px !important;
+      width: 320px !important;
+    }
+  }
+  .main {
+    padding-top: 11% !important;
+    .main-title {
+      margin-right: 43px !important;
+      h1 {
+        font-size: 2em !important;
+        margin-left: 81px !important;
+        opacity: 0.3 !important;
+      }
+      .label {
+        font-size: 2.5em !important;
+      }
+    }
+  }
+}
+
 @include mediaMd {
   .cover-bg {
     height: 380px !important;
     width: 380px !important;
-    margin: -107px 0 0 auto !important;
     opacity: 0.5 !important;
   }
   .menu {
@@ -12,13 +51,32 @@
     position: fixed !important;
     align-items: center;
     .nav {
-      display: none !important;
+      visibility: hidden;
+      position: relative;
+      top: 69vh;
+      transform: translate3d(0, 100px, 0);
+      @include easeOut;
+      &.show {
+        visibility: visible;
+        transform: translate3d(0, -11px, 0);
+      }
+      a {
+        background: rgba($color: $secondary-color, $alpha: 0.1);
+        margin: 4px;
+        width: 100px !important;
+        height: 100px;
+        border-radius: 50%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
     }
     .social {
       justify-content: center;
       background-image: url(../img/paw-solid.svg);
       width: 50px;
       opacity: 0.4;
+      position: fixed;
       a {
         display: none;
       }
@@ -26,10 +84,6 @@
     .social:hover {
       opacity: 1;
       transition: opacity 0.07s;
-      -webkit-transition: opacity 0.07s;
-      -moz-transition: opacity 0.07s;
-      -ms-transition: opacity 0.07s;
-      -o-transition: opacity 0.07s;
     }
   }
 }
@@ -37,13 +91,5 @@
 @include mediaLg {
   .container {
     width: 100vw !important;
-  }
-  .nav {
-    flex-flow: column;
-    a {
-      margin: 16px 0 10px 20px;
-      height: 21px;
-      text-align: left !important;
-    }
   }
 }

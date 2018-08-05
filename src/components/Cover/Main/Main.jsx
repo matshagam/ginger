@@ -6,9 +6,10 @@ export default class Main extends React.Component {
       <main className="main container">
         <div className="main-title">
           <h1>I'm not only</h1>
-          <p>
-            Ginger<span>Piranya</span>
-          </p>
+          <div className="label">
+            <p>Ginger</p>
+            <p>Piranya</p>
+          </div>
         </div>
       </main>
     );
