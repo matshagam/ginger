@@ -1,11 +1,11 @@
 #nav a.show:nth-child(1) {
-  transition-delay: 0.13s; }
+  transition-delay: 0.1s; }
 
 #nav a.show:nth-child(2) {
-  transition-delay: 0.26s; }
+  transition-delay: 0.2s; }
 
 #nav a.show:nth-child(3) {
-  transition-delay: 0.39s; }
+  transition-delay: 0.3s; }
 
 @media screen and (max-width: 320px) {
   .cover .main {
@@ -21,9 +21,11 @@
       height: 320px !important;
       width: 320px !important; }
   .cover .main {
+    justify-content: center !important;
+    align-items: center;
     padding-top: 11% !important; }
     .cover .main .main-title {
-      margin-right: 43px !important; }
+      margin-right: 0 !important; }
       .cover .main .main-title .nav-btn {
         margin: -28px 0 0 20px !important; }
       .cover .main .main-title h1 {
@@ -49,28 +51,27 @@
       transform: translate3d(0, -130px, 0);
       transition: transform 1s; }
       .cover .menu .nav.show {
-        visibility: visible;
-        transform: translate3d(0, -27px, 0); }
+        transform: translate3d(0, -27px, 0);
+        visibility: visible; }
       .cover .menu .nav a.show {
-        visibility: visible;
         background: rgba(108, 106, 104, 0.1);
         opacity: 0.4;
         margin: 4px;
-        width: 100px !important;
         height: 100px;
         border-radius: 50%;
         align-items: center;
         display: flex;
-        justify-content: center; }
+        justify-content: center;
+        transition: visibility 0.1s; }
         .cover .menu .nav a.show:nth-child(2) {
           margin-top: 56px; }
     .cover .menu .social {
       display: none !important; }
-  .cover .main .nav-btn {
+  .main .nav-btn {
     visibility: visible !important; }
-  .cover .main .nav-btn:hover {
-    opacity: 1;
-    transition: opacity 0.07s; } }
+    .main .nav-btn:hover {
+      opacity: 1;
+      transition: opacity 0.07s; } }
 
 @media screen and (max-width: 1170px) {
   .container {
