@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Nav = () => {
   return (
     <div className="nav" id="nav">
-      <a href="home">Home</a>
-      <a href="galery">Galery</a>
-      <a href="contacts">Contacts</a>
+      <Link to="home">Home</Link>
+      <Link to="galery">Galery</Link>
+      <Link to="contacts">Contacts</Link>
     </div>
   );
 };
