@@ -4,7 +4,7 @@ import { Context } from '../../../App.jsx';
 export const NavButton = () => {
   return (
     <Context.Consumer>
-      {onShowMenu => (
+      {({ onShowMenu }) => (
         <div onClick={onShowMenu} className="nav-btn">
           <svg
             aria-hidden="true"

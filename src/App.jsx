@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Contacts from './components/Contacts/Contacts.jsx';
 import Galery from './components/Galery/Galery.jsx';
@@ -19,11 +19,24 @@ export default class App extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this._windowResized);
+  }
+
+  _windowResized = () => {
+    if (window.innerWidth > 730) {
+      this.setState({ show: true });
+      this._showMenu();
+    }
+  };
+
   _showMenu = () => {
     const navLink = document.querySelectorAll('.nav a');
     const navMenu = document.querySelector('.nav');
 
     if (!this.state.show) {
+      console.log(this.state.show);
+
       navMenu.classList.add('show');
       navLink.forEach(function(item) {
         item.classList.add('show');
@@ -45,7 +58,12 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <Context.Provider value={this._showMenu}>
+        <Context.Provider
+          value={{
+            show: this.state.show,
+            onShowMenu: this._showMenu
+          }}
+        >
           <Header />
           <Switch>
             <Route path="/galery" component={Galery} />
