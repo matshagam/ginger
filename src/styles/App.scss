@@ -32,11 +32,52 @@ a {
   margin: 0 auto;
 }
 
+// Header component
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  .nav {
+    display: flex;
+    align-items: center;
+    a {
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: $secondary-color;
+      width: 100px;
+      transition: color 0.07s, font-size 0.07s;
+    }
+    a:hover {
+      font-size: 1.9em;
+      color: $third-color;
+    }
+  }
+  .social {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    a {
+      text-align: center;
+      width: 60px;
+      svg {
+        height: 16px;
+        color: $secondary-color;
+        transition: all 0.07s;
+      }
+      svg:hover {
+        height: 35px;
+        color: $third-color;
+      }
+    }
+  }
+}
+
 // Cover component
 
 .cover {
   height: 100vh;
-  position: fixed;
   &-bg-box {
     display: flex;
     width: 100%;
@@ -58,45 +99,9 @@ a {
       @include easeOut;
     }
   }
-  .menu {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-    .nav {
-      display: flex;
-      align-items: center;
-      a {
-        text-align: center;
-        font-size: 1.6em;
-        font-weight: bold;
-        color: $secondary-color;
-        width: 100px;
-        transition: color 0.07s, font-size 0.07s;
-      }
-      a:hover {
-        font-size: 1.9em;
-        color: $third-color;
-      }
-    }
-    .social {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      a {
-        text-align: center;
-        width: 60px;
-        svg {
-          height: 16px;
-          color: $secondary-color;
-          transition: all 0.07s;
-        }
-        svg:hover {
-          height: 35px;
-          color: $third-color;
-        }
-      }
-    }
-  }
+
+  // Main component
+
   .main {
     display: flex;
     justify-content: flex-end;

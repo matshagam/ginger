@@ -1,18 +1,54 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import Contacts from './components/Contacts/Contacts.jsx';
+import Galery from './components/Galery/Galery.jsx';
+import Cover from './components/Cover/Cover.jsx';
+import Header from './components/Header/Header';
 
 import './styles/App.css';
 
-import Cover from './components/Cover/Cover.jsx';
+export const CoverContext = React.createContext();
 
-class App extends Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false
+    };
+  }
+
+  _showMenu = () => {
+    const navLink = document.querySelectorAll('.nav a');
+    const navMenu = document.querySelector('.nav');
+
+    if (!this.state.show) {
+      navMenu.classList.add('show');
+      navLink.forEach(function(item) {
+        item.classList.add('show');
+      });
+      this.setState({
+        show: true
+      });
+    } else {
+      navMenu.classList.remove('show');
+      navLink.forEach(function(item) {
+        item.classList.remove('show');
+      });
+      this.setState({
+        show: false
+      });
+    }
+  };
+
   render() {
     return (
-      <BrowserRouter>
-        <Cover />
-      </BrowserRouter>
+      <div>
+        <Header />
+        <CoverContext.Provider value={this._showMenu}>
+          <Cover />
+        </CoverContext.Provider>
+        <Contacts />
+        <Galery />
+      </div>
     );
   }
 }
-
-export default App;
