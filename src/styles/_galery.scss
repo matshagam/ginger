@@ -1,0 +1,11 @@
+@import 'functions';
+
+// Galery componet
+
+.galery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  height: 100vh;
+}

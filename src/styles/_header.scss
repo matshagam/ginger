@@ -1,0 +1,48 @@
+@import 'functions';
+
+// Header component
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  .nav-btn {
+    visibility: hidden;
+    position: fixed;
+    margin: 7px 0 0 0;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    a {
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: $secondary-color;
+      width: 100px;
+      transition: color 0.07s, font-size 0.07s;
+    }
+    a:hover {
+      font-size: 1.9em;
+      color: $third-color;
+    }
+  }
+  .social {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    a {
+      text-align: center;
+      width: 60px;
+      svg {
+        height: 16px;
+        color: $secondary-color;
+        transition: all 0.07s;
+      }
+      svg:hover {
+        height: 35px;
+        color: $third-color;
+      }
+    }
+  }
+}

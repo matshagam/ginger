@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
 import Contacts from './components/Contacts/Contacts.jsx';
 import Galery from './components/Galery/Galery.jsx';
 import Cover from './components/Cover/Cover.jsx';
@@ -6,7 +9,7 @@ import Header from './components/Header/Header';
 
 import './styles/App.css';
 
-export const CoverContext = React.createContext();
+export const Context = React.createContext();
 
 export default class App extends Component {
   constructor(props) {
@@ -41,14 +44,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <CoverContext.Provider value={this._showMenu}>
-          <Cover />
-        </CoverContext.Provider>
-        <Contacts />
-        <Galery />
-      </div>
+      <Router>
+        <Context.Provider value={this._showMenu}>
+          <Header />
+          <Switch>
+            <Route path="/galery" component={Galery} />
+            <Route path="/contacts" component={Contacts} />
+            <Route path="/" component={Cover} />
+          </Switch>
+        </Context.Provider>
+      </Router>
     );
   }
 }

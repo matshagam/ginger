@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Main } from './Main/Main.jsx';
-import { Background } from './Background.jsx';
+import { MainTitle } from './components/MainTitle.jsx';
+import { Background } from './components/Background.jsx';
 
 export default class Cover extends React.Component {
   render() {
     return (
       <div className="cover">
         <Background />
-        <Main />
+        <MainTitle />
       </div>
     );
   }
