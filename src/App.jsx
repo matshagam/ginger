@@ -16,11 +16,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       show: false,
-      windowLocation: {
-        home: '.nav-home',
-        galery: '.nav-galery',
-        contacts: '.nav-contacts'
-      }
+      target: false
     };
   }
 
@@ -30,27 +26,28 @@ export default class App extends Component {
   }
 
   _windowLocation = () => {
+    const linkClass = {
+      home: '.nav-home',
+      galery: '.nav-galery',
+      contacts: '.nav-contacts'
+    };
     let windowLocation = sessionStorage.getItem('windowLocation');
+    const homeLocation = document.querySelector(linkClass.home);
 
     if (
       windowLocation === null ||
       windowLocation === 'http://localhost:3000/'
     ) {
-      const homeLocation = document.querySelector(
-        this.state.windowLocation.home
-      );
       homeLocation.classList.add('active');
     } else {
       windowLocation = windowLocation.replace(/^[^]+\//g, '');
 
-      Object.keys(this.state.windowLocation).map(name => {
-        if (name === windowLocation) {
-          windowLocation = document.querySelector(
-            `${this.state.windowLocation[name]}`
-          );
+      for (let elem in linkClass) {
+        if (elem === windowLocation) {
+          windowLocation = document.querySelector(linkClass[elem]);
           windowLocation.classList.add('active');
         }
-      });
+      }
     }
   };
 
@@ -62,13 +59,22 @@ export default class App extends Component {
   };
 
   _linkClicked = e => {
-    sessionStorage.setItem('windowLocation', e.target.href);
     e.preventDefault();
-    e.target.classList.add('active');
 
     const navLink = document.querySelectorAll('.nav a');
+
+    sessionStorage.setItem('windowLocation', e.target.href);
+    if (e.target.className !== 'nav show' && e.target.className !== 'nav') {
+      e.target.classList.add('active');
+    }
+
     navLink.forEach(function(item) {
-      if (item !== e.target) item.classList.remove('active');
+      if (
+        item !== e.target &&
+        (e.target.className !== 'nav show' && e.target.className !== 'nav')
+      ) {
+        item.classList.remove('active');
+      }
     });
   };
 

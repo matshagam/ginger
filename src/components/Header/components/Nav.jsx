@@ -7,7 +7,7 @@ export const Nav = () => {
     <Context.Consumer>
       {({ show, onLinkClicked }) => (
         <div onClick={onLinkClicked} className="nav" id="nav">
-          <Link className='nav-home' to="/">
+          <Link className="nav-home" to="/">
             {!show ? (
               'Home'
             ) : (
@@ -23,7 +23,7 @@ export const Nav = () => {
               </svg>
             )}
           </Link>
-          <Link className='nav-galery' to="/galery">
+          <Link className="nav-galery" to="/galery">
             {!show ? (
               'Galery'
             ) : (
@@ -39,7 +39,7 @@ export const Nav = () => {
               </svg>
             )}
           </Link>
-          <Link className='nav-contacts' to="/contacts">
+          <Link className="nav-contacts" to="/contacts">
             {!show ? (
               'Contacts'
             ) : (
