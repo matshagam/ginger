@@ -26,6 +26,9 @@
       font-size: 1.9em;
       color: $third-color;
     }
+    a.active {
+      @extend a:hover;
+    }
   }
   .social {
     height: 50px;

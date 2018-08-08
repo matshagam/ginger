@@ -16,7 +16,7 @@
       color: #6c6a68;
       width: 100px;
       transition: color 0.07s, font-size 0.07s; }
-    .menu .nav a:hover {
+    .menu .nav a:hover, .menu .nav a.active {
       font-size: 1.9em;
       color: #c0a064; }
   .menu .social {
@@ -132,14 +132,13 @@
       width: 50px;
       opacity: 0.4;
       visibility: visible !important;
-      transition: opacity 1s; }
+      transition: opacity 0.07s; }
       .menu .nav-btn:hover {
-        opacity: 1;
-        transition: opacity 0.07s; }
+        opacity: 1; }
     .menu .nav {
       visibility: hidden;
       position: relative;
-      top: 65vh;
+      top: 72vh;
       transform: translate3d(0, 30px, 0);
       transition: transform 1s; }
       .menu .nav.show {
@@ -151,11 +150,16 @@
         width: auto;
         margin: 4px;
         transition: visibility 0.1s; }
+        .menu .nav a.show:nth-child(2) {
+          margin-top: 56px; }
         .menu .nav a.show svg {
-          opacity: 0.4;
-          height: 30px; }
-        .menu .nav a.show svg:hover {
-          opacity: 1; }
+          opacity: 0.3;
+          height: 30px;
+          transition: opacity 0.07s;
+          pointer-events: none; }
+      .menu .nav a.active svg {
+        fill: #c0a064;
+        opacity: 1; }
     .menu .social {
       display: none !important; }
   .cover-bg {
