@@ -15,8 +15,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
-      target: false
+      show: false
     };
   }
 
@@ -31,8 +30,8 @@ export default class App extends Component {
       galery: '.nav-galery',
       contacts: '.nav-contacts'
     };
-    let windowLocation = sessionStorage.getItem('windowLocation');
     const homeLocation = document.querySelector(linkClass.home);
+    let windowLocation = sessionStorage.getItem('windowLocation');
 
     if (
       windowLocation === null ||
@@ -42,9 +41,9 @@ export default class App extends Component {
     } else {
       windowLocation = windowLocation.replace(/^[^]+\//g, '');
 
-      for (let elem in linkClass) {
-        if (elem === windowLocation) {
-          windowLocation = document.querySelector(linkClass[elem]);
+      for (let name in linkClass) {
+        if (name === windowLocation) {
+          windowLocation = document.querySelector(linkClass[name]);
           windowLocation.classList.add('active');
         }
       }
@@ -61,39 +60,40 @@ export default class App extends Component {
   _linkClicked = e => {
     e.preventDefault();
 
-    const navLink = document.querySelectorAll('.nav a');
+    const navLinks = document.querySelectorAll('.nav a');
 
     sessionStorage.setItem('windowLocation', e.target.href);
+
     if (e.target.className !== 'nav show' && e.target.className !== 'nav') {
       e.target.classList.add('active');
     }
 
-    navLink.forEach(function(item) {
+    navLinks.forEach(function(link) {
       if (
-        item !== e.target &&
+        link !== e.target &&
         (e.target.className !== 'nav show' && e.target.className !== 'nav')
       ) {
-        item.classList.remove('active');
+        link.classList.remove('active');
       }
     });
   };
 
   _showMenu = () => {
-    const navLink = document.querySelectorAll('.nav a');
+    const navLinks = document.querySelectorAll('.nav a');
     const navMenu = document.querySelector('.nav');
 
     if (!this.state.show) {
       navMenu.classList.add('show');
-      navLink.forEach(function(item) {
-        item.classList.add('show');
+      navLinks.forEach(function(link) {
+        link.classList.add('show');
       });
       this.setState({
         show: true
       });
     } else {
       navMenu.classList.remove('show');
-      navLink.forEach(function(item) {
-        item.classList.remove('show');
+      navLinks.forEach(function(link) {
+        link.classList.remove('show');
       });
       this.setState({
         show: false
