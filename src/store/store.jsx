@@ -50,9 +50,12 @@ export default class UserStore extends React.Component {
   };
 
   _linkClicked = e => {
+    const navLinks = document.querySelectorAll('.nav a');
     e.preventDefault();
 
-    const navLinks = document.querySelectorAll('.nav a');
+    if (this.state.show) {
+      this._showMenu();
+    }
 
     sessionStorage.setItem('windowLocation', e.target.href);
 
