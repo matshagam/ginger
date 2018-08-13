@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../../../App.jsx';
+import { RoomContext } from '../../../store/store.jsx';
 
 export const Nav = () => {
   return (
-    <Context.Consumer>
+    <RoomContext.Consumer>
       {({ show, onLinkClicked }) => (
         <div onClick={onLinkClicked} className="nav" id="nav">
           <Link className="nav-home" to="/">
@@ -57,6 +57,6 @@ export const Nav = () => {
           </Link>
         </div>
       )}
-    </Context.Consumer>
+    </RoomContext.Consumer>
   );
 };
