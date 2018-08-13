@@ -7,13 +7,13 @@ export default class Galery extends Component {
         <h1>Galery</h1>
         <div className="galery-presentation">
           <div className="presentation-1">
-            <figure className="image-cube-big">
+            <figure className="image-one">
               <img
                 src={require('../../img/9RdgHHUHwPg.jpg')}
                 alt="presentation"
               />
             </figure>
-            <figure className="image-cube-litle">
+            <figure className="image-double">
               <img
                 src={require('../../img/DPWTHWtcgSk.jpg')}
                 alt="presentation"

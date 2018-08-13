@@ -13,28 +13,32 @@
     font-size: 36px;
   }
 
-    &-presentation {
+  &-presentation {
+    display: grid;
+    grid-row-gap: 15px;
+
+    .presentation-1 {
+      width: 100%;
       display: grid;
-      grid-row-gap: 20px;
-  
-      .presentation-1 {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 60% 1fr;
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-      }
+      grid-template-columns: 60% 1fr;
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+    }
 
     img {
       object-fit: cover;
       width: 100%;
-      height: 100%;
     }
 
-    .image-cube-litle {
+    .image-one {
+      img {
+        height: 100%;
+      }
+    }
+
+    .image-double {
       display: grid;
-      grid-row-gap: 20px;
+      grid-row-gap: 15px;
       height: 100%;
     }
   }
