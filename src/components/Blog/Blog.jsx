@@ -8,6 +8,7 @@ export default class Blog extends Component {
         <div className="blog-container">
           <div className="post">
             <img src={require('../../img/WxLbNxagz8E.jpg')} alt="blog" />
+            <p className="post-title">6 августа</p>
             <p className="post-date">6 августа</p>
             <p className="post-text">
               Открыли новое местечко Маргит и и еще один пляж Ботани Бей.
@@ -24,6 +25,7 @@ export default class Blog extends Component {
           </div>
           <div className="post">
             <img src={require('../../img/NFU08gHf6QM.jpg')} alt="blog" />
+            <p className="post-title">2 августа</p>
             <p className="post-date">2 августа</p>
             <p className="post-text">
               Когда фото совпадают с музыкой в плеере и настроением. Лето
