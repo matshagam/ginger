@@ -41,7 +41,7 @@ export const Nav = () => {
           </Link>
           <Link className="nav-contacts" to="/contacts">
             {!show ? (
-              'Contacts'
+              'Blog'
             ) : (
               <svg
                 aria-hidden="true"

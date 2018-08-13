@@ -47,6 +47,7 @@
 }
 
 @include mediaMd {
+  // Home
   .menu {
     flex-flow: column;
     position: fixed !important;
@@ -104,10 +105,28 @@
       opacity: 0.5 !important;
     }
   }
+  // Galery
+  .galery-presentation {
+    .presentation-1 {
+      grid-template-rows: 50% 1fr;
+      grid-template-columns: none;
+      grid-column-gap: 0;
+
+      .image-cube-litle {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 0;
+      }
+    }
+  }
 }
 
 @include mediaLg {
   .container {
     width: 100vw !important;
+  }
+
+  .galery {
+    padding: 0 20px;
   }
 }
