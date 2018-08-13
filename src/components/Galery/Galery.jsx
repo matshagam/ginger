@@ -9,24 +9,24 @@ export default class Galery extends Component {
           <div className="presentation-1">
             <figure className="image-one">
               <img
-                src={require('../../img/9RdgHHUHwPg.jpg')}
+                src="https://picsum.photos/500/500/?random"
                 alt="presentation"
               />
             </figure>
             <figure className="image-double">
               <img
-                src={require('../../img/DPWTHWtcgSk.jpg')}
+                src="https://picsum.photos/500/500/?random"
                 alt="presentation"
               />
               <img
-                src={require('../../img/Jbp7UctNgN0.jpg')}
+                src="https://picsum.photos/500/500/?random"
                 alt="presentation"
               />
             </figure>
           </div>
           <figure className="image-wide">
             <img
-              src={require('../../img/SkVf61A_nrk.jpg')}
+              src="https://picsum.photos/500/500/?random"
               alt="presentation"
             />
           </figure>

@@ -7,7 +7,7 @@ export default class Blog extends Component {
         <h1>Blog</h1>
         <div className="blog-container">
           <div className="post">
-            <img src={require('../../img/WxLbNxagz8E.jpg')} alt="blog" />
+            <img src="https://picsum.photos/500/500/?random" alt="blog" />
             <p className="post-title">6 августа</p>
             <p className="post-date">6 августа</p>
             <p className="post-text">
@@ -26,7 +26,7 @@ export default class Blog extends Component {
             </p>
           </div>
           <div className="post">
-            <img src={require('../../img/NFU08gHf6QM.jpg')} alt="blog" />
+            <img src="https://picsum.photos/500/500/?random" alt="blog" />
             <p className="post-title">2 августа</p>
             <p className="post-date">2 августа</p>
             <p className="post-text">
