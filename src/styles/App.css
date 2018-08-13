@@ -147,12 +147,14 @@
   .menu {
     flex-flow: column;
     position: fixed !important;
-    align-items: center; }
+    align-items: center;
+    height: 100%; }
     .menu .nav-btn {
       width: 50px;
       opacity: 0.4;
       visibility: visible !important;
-      transition: opacity 0.07s; }
+      transition: opacity 0.07s;
+      z-index: 1; }
       .menu .nav-btn:hover {
         opacity: 1; }
     .menu .nav {
@@ -165,7 +167,10 @@
         transform: translate3d(0, 0, 0);
         visibility: visible;
         justify-content: space-around;
-        width: 320px; }
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: #ffffffbd; }
       .menu .nav a.show {
         width: auto;
         margin: 4px;
