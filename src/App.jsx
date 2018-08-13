@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Contacts from './components/Contacts/Contacts.jsx';
+import Blog from './components/Blog/Blog.jsx';
 import Galery from './components/Galery/Galery.jsx';
 import { Cover } from './components/Cover/Cover.jsx';
 import { Header } from './components/Header/Header';
@@ -16,7 +16,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route path="/galery" component={Galery} />
-          <Route path="/contacts" component={Contacts} />
+          <Route path="/contacts" component={Blog} />
           <Route path="/" component={Cover} />
         </Switch>
       </UserStore>

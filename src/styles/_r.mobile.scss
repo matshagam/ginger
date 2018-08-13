@@ -44,6 +44,24 @@
       }
     }
   }
+  .blog {
+    &-container {
+      .post {
+        display: grid;
+        grid-template-rows: 50% 0.5fr 1.5fr;
+        padding: 20px 0;
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
+        h3 {
+        }
+        p {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
 }
 
 @include mediaMd {
@@ -130,5 +148,7 @@
 
   .galery {
     padding: 0 20px;
+  }
+  .blog {
   }
 }
