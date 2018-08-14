@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Galery from './components/Galery/Galery.jsx';
+import { Galery } from './components/Galery/Galery.jsx';
 import { Blog } from './components/Blog/Blog.jsx';
 import { Cover } from './components/Cover/Cover.jsx';
 import { Header } from './components/Header/Header';

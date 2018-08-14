@@ -1,37 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { RoomContext } from '../../store/store.jsx';
 
-export default class Galery extends Component {
-  render() {
-    return (
-      <div className="galery container">
-        <h1>Galery</h1>
-        <div className="galery-presentation">
-          <div className="presentation-1">
-            <figure className="image-one">
-              <img
-                src="https://picsum.photos/500/500/?random"
-                alt="presentation"
-              />
-            </figure>
-            <figure className="image-double">
-              <img
-                src="https://picsum.photos/500/500/?random"
-                alt="presentation"
-              />
-              <img
-                src="https://picsum.photos/500/500/?random"
-                alt="presentation"
-              />
+export const Galery = () => {
+  return (
+    <div className="galery container">
+      <h1>Galery</h1>
+      <RoomContext.Consumer>
+        {({ galery }) => (
+          <div className="galery-presentation">
+            <div className="presentation-1">
+              <figure className="image-one">
+                <img src={galery[0]} alt="presentation" />
+              </figure>
+              <figure className="image-double">
+                <img src={galery[1]} alt="presentation" />
+                <img src={galery[2]} alt="presentation" />
+              </figure>
+            </div>
+            <figure className="image-wide">
+              <img src={galery[3]} alt="presentation" />
             </figure>
           </div>
-          <figure className="image-wide">
-            <img
-              src="https://picsum.photos/500/500/?random"
-              alt="presentation"
-            />
-          </figure>
-        </div>
-      </div>
-    );
-  }
-}
+        )}
+      </RoomContext.Consumer>
+    </div>
+  );
+};

@@ -8,7 +8,8 @@ export default class UserStore extends React.Component {
     super(props);
     this.state = {
       show: false,
-      data: []
+      dataBlog: [],
+      dataGalery: []
     };
   }
 
@@ -99,13 +100,14 @@ export default class UserStore extends React.Component {
   };
 
   _getData = () => {
-    let fetchDATA = fetch('https://testapi.io/api/matshagam/posts');
+    let fetchDATA = fetch('https://testapi.io/api/matshagam/data');
 
     fetchDATA
       .then(data => data.json())
       .then(dataJSON => {
         this.setState({
-          data: dataJSON
+          dataBlog: dataJSON.posts,
+          dataGalery: dataJSON.images
         });
       })
       .catch(error => {
@@ -118,7 +120,8 @@ export default class UserStore extends React.Component {
     return (
       <RoomContext.Provider
         value={{
-          post: this.state.data,
+          galery: this.state.dataGalery,
+          post: this.state.dataBlog,
           show: this.state.show,
           onLinkClicked: this._linkClicked,
           onShowMenu: this._showMenu
