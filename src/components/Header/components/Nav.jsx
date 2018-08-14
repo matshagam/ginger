@@ -39,7 +39,7 @@ export const Nav = () => {
               </svg>
             )}
           </Link>
-          <Link className="nav-contacts" to="/contacts">
+          <Link className="nav-blog" to="/blog">
             {!show ? (
               'Blog'
             ) : (

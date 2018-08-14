@@ -16,7 +16,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route path="/galery" component={Galery} />
-          <Route path="/contacts" component={Blog} />
+          <Route path="/blog" component={Blog} />
           <Route path="/" component={Cover} />
         </Switch>
       </UserStore>

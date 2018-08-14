@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/App.css';
 
+import { fetchData } from '../helpers/functions';
+
 export const Context = React.createContext();
 
 export default class UserStore extends React.Component {
@@ -9,22 +11,23 @@ export default class UserStore extends React.Component {
     this.state = {
       show: false,
       dataBlog: [],
-      dataGalery: []
+      dataGalery: [],
+      urlData: 'https://testapi.io/api/matshagam/data'
     };
   }
 
   componentDidMount() {
     window.addEventListener('resize', this._windowResized);
     this._windowLocation();
-    this._getData();
   }
 
   _windowLocation = () => {
     const linkClass = {
       home: '.nav-home',
       galery: '.nav-galery',
-      contacts: '.nav-contacts'
+      blog: '.nav-blog'
     };
+
     const homeLocation = document.querySelector(linkClass.home);
     let windowLocation = sessionStorage.getItem('windowLocation');
 
@@ -35,6 +38,14 @@ export default class UserStore extends React.Component {
       homeLocation.classList.add('active');
     } else {
       windowLocation = windowLocation.replace(/^[^]+\//g, '');
+
+      if (windowLocation === 'blog' && this.state.dataBlog.length === 0) {
+        this._getDataBlog();
+      }
+
+      if (windowLocation === 'galery' && this.state.dataGalery.length === 0) {
+        this._getDataGalery();
+      }
 
       for (let name in linkClass) {
         if (name === windowLocation) {
@@ -56,21 +67,32 @@ export default class UserStore extends React.Component {
     const navLinks = document.querySelectorAll('.nav a');
     e.preventDefault();
 
+    if (
+      e.target.className.includes('nav-blog') &&
+      this.state.dataBlog.length === 0
+    ) {
+      this._getDataBlog();
+    }
+
+    if (
+      e.target.className.includes('nav-galery') &&
+      this.state.dataGalery.length === 0
+    ) {
+      this._getDataGalery();
+    }
+
     if (this.state.show) {
       this._showMenu();
     }
 
     sessionStorage.setItem('windowLocation', e.target.href);
 
-    if (e.target.className !== 'nav show' && e.target.className !== 'nav') {
+    if (!e.target.className.indexOf('nav')) {
       e.target.classList.add('active');
     }
 
     navLinks.forEach(function(link) {
-      if (
-        link !== e.target &&
-        (e.target.className !== 'nav show' && e.target.className !== 'nav')
-      ) {
+      if (link !== e.target && !e.target.className.indexOf('nav')) {
         link.classList.remove('active');
       }
     });
@@ -99,15 +121,23 @@ export default class UserStore extends React.Component {
     }
   };
 
-  _getData = () => {
-    let fetchDATA = fetch('https://testapi.io/api/matshagam/data');
-
-    fetchDATA
-      .then(data => data.json())
-      .then(dataJSON => {
+  _getDataBlog = () => {
+    fetchData()
+      .then(data => {
         this.setState({
-          dataBlog: dataJSON.posts,
-          dataGalery: dataJSON.images
+          dataBlog: data.posts
+        });
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  };
+
+  _getDataGalery = () => {
+    fetchData()
+      .then(data => {
+        this.setState({
+          dataGalery: data.images
         });
       })
       .catch(error => {
@@ -116,8 +146,7 @@ export default class UserStore extends React.Component {
   };
 
   render() {
-    console.log(this.state.error);
-
+    console.log(this.state.error ? this.state.error : 'данные получены');
     return (
       <Context.Provider
         value={{
