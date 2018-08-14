@@ -116,12 +116,12 @@ export default class UserStore extends React.Component {
   };
 
   render() {
-    console.log(this.state.error, this.state.dataGalery);
+    console.log(this.state.error);
 
     return (
       <Context.Provider
         value={{
-          galery: this.state.dataGalery,
+          images: this.state.dataGalery,
           post: this.state.dataBlog,
           show: this.state.show,
           onLinkClicked: this._linkClicked,
