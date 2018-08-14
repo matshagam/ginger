@@ -134,7 +134,8 @@
       opacity: 0.5 !important;
     }
   }
-  // Galery
+
+  // Galery component
   .galery {
     .presentation-1 {
       grid-template-rows: 50% 1fr;
@@ -157,7 +158,5 @@
 
   .galery {
     padding: 0 20px;
-  }
-  .blog {
   }
 }

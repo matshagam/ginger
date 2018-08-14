@@ -7,13 +7,15 @@ export default class UserStore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: false,
+      data: []
     };
   }
 
   componentDidMount() {
     window.addEventListener('resize', this._windowResized);
     this._windowLocation();
+    this._getData();
   }
 
   _windowLocation = () => {
@@ -96,10 +98,27 @@ export default class UserStore extends React.Component {
     }
   };
 
+  _getData = () => {
+    let fetchDATA = fetch('https://testapi.io/api/matshagam/posts');
+
+    fetchDATA
+      .then(data => data.json())
+      .then(dataJSON => {
+        this.setState({
+          data: dataJSON
+        });
+      })
+      .catch(error => {
+        this.setState({ error });
+        console.error(`Данные не получены: ${error}`);
+      });
+  };
+
   render() {
     return (
       <RoomContext.Provider
         value={{
+          post: this.state.data,
           show: this.state.show,
           onLinkClicked: this._linkClicked,
           onShowMenu: this._showMenu
