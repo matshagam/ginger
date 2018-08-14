@@ -1,9 +1,9 @@
 import React from 'react';
-import { RoomContext } from '../../../store/store.jsx';
+import { Context } from '../../../store/store.jsx';
 
 export const NavButton = () => {
   return (
-    <RoomContext.Consumer>
+    <Context.Consumer>
       {({ onShowMenu }) => (
         <div onClick={onShowMenu} className="nav-btn">
           <svg
@@ -21,6 +21,6 @@ export const NavButton = () => {
           </svg>
         </div>
       )}
-    </RoomContext.Consumer>
+    </Context.Consumer>
   );
 };

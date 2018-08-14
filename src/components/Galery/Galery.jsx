@@ -1,11 +1,11 @@
 import React from 'react';
-import { RoomContext } from '../../store/store.jsx';
+import { Context } from '../../store/store.jsx';
 
 export const Galery = () => {
   return (
     <div className="galery container">
       <h1>Galery</h1>
-      <RoomContext.Consumer>
+      <Context.Consumer>
         {({ galery }) => (
           <div className="galery-presentation">
             <div className="presentation-1">
@@ -22,7 +22,7 @@ export const Galery = () => {
             </figure>
           </div>
         )}
-      </RoomContext.Consumer>
+      </Context.Consumer>
     </div>
   );
 };

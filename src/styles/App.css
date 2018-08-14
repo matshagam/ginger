@@ -90,6 +90,7 @@
     padding-top: 75px;
     font-size: 3.6em; }
   .galery-presentation {
+    margin-top: 20px;
     display: grid;
     grid-row-gap: 15px; }
     .galery-presentation .presentation-1 {
@@ -117,7 +118,6 @@
     padding-top: 75px;
     font-size: 3.6em; }
   .blog-container {
-    margin-top: 30px;
     height: 100%;
     width: 100%; }
     .blog-container .post {

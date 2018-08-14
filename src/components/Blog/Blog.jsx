@@ -1,11 +1,11 @@
 import React from 'react';
-import { RoomContext } from '../../store/store.jsx';
+import { Context } from '../../store/store.jsx';
 
 export const Blog = () => {
   return (
     <div className="blog">
       <h1>Blog</h1>
-      <RoomContext.Consumer>
+      <Context.Consumer>
         {({ post }) => (
           <div className="blog-container">
             {post.map((post, index) => {
@@ -20,7 +20,7 @@ export const Blog = () => {
             })}
           </div>
         )}
-      </RoomContext.Consumer>
+      </Context.Consumer>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/App.css';
 
-export const RoomContext = React.createContext();
+export const Context = React.createContext();
 
 export default class UserStore extends React.Component {
   constructor(props) {
@@ -112,13 +112,14 @@ export default class UserStore extends React.Component {
       })
       .catch(error => {
         this.setState({ error });
-        console.error(`Данные не получены: ${error}`);
       });
   };
 
   render() {
+    console.log(this.state.error, this.state.dataGalery);
+
     return (
-      <RoomContext.Provider
+      <Context.Provider
         value={{
           galery: this.state.dataGalery,
           post: this.state.dataBlog,
@@ -128,7 +129,7 @@ export default class UserStore extends React.Component {
         }}
       >
         {this.props.children}
-      </RoomContext.Provider>
+      </Context.Provider>
     );
   }
 }
