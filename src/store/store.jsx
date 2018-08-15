@@ -57,13 +57,11 @@ export default class UserStore extends React.Component {
     const navLinks = document.querySelectorAll('.nav a');
     e.preventDefault();
 
-    e.target.className.includes('nav-blog') && this.state.dataBlog.length === 0
-      ? this._getDataBlog()
-      : null;
-
-    e.target.className.includes('nav-galery') &&
-    this.state.dataGalery.length === 0
-      ? this._getDataGalery()
+    this.state.dataBlog.length === 0 || this.state.dataGalery.length === 0
+      ? (e.target.className.includes('nav-blog') ? this._getDataBlog() : null,
+        e.target.className.includes('nav-galery')
+          ? this._getDataGalery()
+          : null)
       : null;
 
     this.state.show ? this._showMenu() : null;
