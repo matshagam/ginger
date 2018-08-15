@@ -30,12 +30,9 @@ export default class UserStore extends React.Component {
     if (windowLocation === null || windowLocation === '') {
       homeLocation.classList.add('active');
     } else {
-      windowLocation === 'blog' && this.state.dataBlog.length === 0
-        ? this._getDataBlog()
-        : null;
-
-      windowLocation === 'galery' && this.state.dataGalery.length === 0
-        ? this._getDataGalery()
+      this.state.dataBlog.length === 0 || this.state.dataGalery.length === 0
+        ? (windowLocation === 'blog' ? this._getDataBlog() : null,
+          windowLocation === 'galery' ? this._getDataGalery() : null)
         : null;
 
       for (let name in LINK_CLASS) {
@@ -54,8 +51,16 @@ export default class UserStore extends React.Component {
   };
 
   _linkClicked = e => {
-    const navLinks = document.querySelectorAll('.nav a');
     e.preventDefault();
+
+    const navLinks = document.querySelectorAll('.nav a');
+
+    !e.target.className.indexOf('nav')
+      ? (e.target.classList.add('active'),
+        navLinks.forEach(function(link) {
+          link !== e.target ? link.classList.remove('active') : null;
+        }))
+      : null;
 
     this.state.dataBlog.length === 0 || this.state.dataGalery.length === 0
       ? (e.target.className.includes('nav-blog') ? this._getDataBlog() : null,
@@ -67,13 +72,6 @@ export default class UserStore extends React.Component {
     this.state.show ? this._showMenu() : null;
 
     sessionStorage.setItem('windowLocation', e.target.href);
-
-    !e.target.className.indexOf('nav')
-      ? (e.target.classList.add('active'),
-        navLinks.forEach(function(link) {
-          link !== e.target ? link.classList.remove('active') : null;
-        }))
-      : null;
   };
 
   _showMenu = () => {
