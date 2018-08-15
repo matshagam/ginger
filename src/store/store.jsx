@@ -2,12 +2,14 @@ import React from 'react';
 import '../styles/App.css';
 
 import { fetchData } from '../helpers/functions';
+import { LINK_CLASS } from '../helpers/configs';
 
 export const Context = React.createContext();
 
 export default class UserStore extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       show: false,
       dataBlog: [],
@@ -21,34 +23,24 @@ export default class UserStore extends React.Component {
   }
 
   _windowLocation = () => {
-    const linkClass = {
-      home: '.nav-home',
-      galery: '.nav-galery',
-      blog: '.nav-blog'
-    };
-
-    const homeLocation = document.querySelector(linkClass.home);
+    const homeLocation = document.querySelector(LINK_CLASS.home);
     let windowLocation = sessionStorage.getItem('windowLocation');
+    windowLocation = windowLocation.replace(/^[^]+\//g, '');
 
-    if (
-      windowLocation === null ||
-      windowLocation === 'http://localhost:3000/'
-    ) {
+    if (windowLocation === null || windowLocation === '') {
       homeLocation.classList.add('active');
     } else {
-      windowLocation = windowLocation.replace(/^[^]+\//g, '');
+      windowLocation === 'blog' && this.state.dataBlog.length === 0
+        ? this._getDataBlog()
+        : null;
 
-      if (windowLocation === 'blog' && this.state.dataBlog.length === 0) {
-        this._getDataBlog();
-      }
+      windowLocation === 'galery' && this.state.dataGalery.length === 0
+        ? this._getDataGalery()
+        : null;
 
-      if (windowLocation === 'galery' && this.state.dataGalery.length === 0) {
-        this._getDataGalery();
-      }
-
-      for (let name in linkClass) {
+      for (let name in LINK_CLASS) {
         if (name === windowLocation) {
-          windowLocation = document.querySelector(linkClass[name]);
+          windowLocation = document.querySelector(LINK_CLASS[name]);
           windowLocation.classList.add('active');
         }
       }
@@ -66,34 +58,27 @@ export default class UserStore extends React.Component {
     const navLinks = document.querySelectorAll('.nav a');
     e.preventDefault();
 
-    if (
-      e.target.className.includes('nav-blog') &&
-      this.state.dataBlog.length === 0
-    ) {
-      this._getDataBlog();
-    }
+    e.target.className.includes('nav-blog') && this.state.dataBlog.length === 0
+      ? this._getDataBlog()
+      : null;
 
-    if (
-      e.target.className.includes('nav-galery') &&
-      this.state.dataGalery.length === 0
-    ) {
-      this._getDataGalery();
-    }
+    e.target.className.includes('nav-galery') &&
+    this.state.dataGalery.length === 0
+      ? this._getDataGalery()
+      : null;
 
-    if (this.state.show) {
-      this._showMenu();
-    }
+    this.state.show ? this._showMenu() : null;
 
     sessionStorage.setItem('windowLocation', e.target.href);
 
-    if (!e.target.className.indexOf('nav')) {
-      e.target.classList.add('active');
-    }
+    !e.target.className.indexOf('nav')
+      ? e.target.classList.add('active')
+      : null;
 
     navLinks.forEach(function(link) {
-      if (link !== e.target && !e.target.className.indexOf('nav')) {
-        link.classList.remove('active');
-      }
+      link !== e.target && !e.target.className.indexOf('nav')
+        ? link.classList.remove('active')
+        : null;
     });
   };
 
