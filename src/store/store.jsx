@@ -39,19 +39,18 @@ export default class UserStore extends React.Component {
         : null;
 
       for (let name in LINK_CLASS) {
-        if (name === windowLocation) {
-          windowLocation = document.querySelector(LINK_CLASS[name]);
-          windowLocation.classList.add('active');
-        }
+        name === windowLocation
+          ? ((windowLocation = document.querySelector(LINK_CLASS[name])),
+            windowLocation.classList.add('active'))
+          : null;
       }
     }
   };
 
   _windowResized = () => {
-    if (window.innerWidth > 730 && this.state.show) {
-      this.setState({ show: true });
-      this._showMenu();
-    }
+    window.innerWidth > 730 && this.state.show
+      ? (this.setState({ show: true }), this._showMenu())
+      : null;
   };
 
   _linkClicked = e => {
@@ -72,37 +71,32 @@ export default class UserStore extends React.Component {
     sessionStorage.setItem('windowLocation', e.target.href);
 
     !e.target.className.indexOf('nav')
-      ? e.target.classList.add('active')
+      ? (e.target.classList.add('active'),
+        navLinks.forEach(function(link) {
+          link !== e.target ? link.classList.remove('active') : null;
+        }))
       : null;
-
-    navLinks.forEach(function(link) {
-      link !== e.target && !e.target.className.indexOf('nav')
-        ? link.classList.remove('active')
-        : null;
-    });
   };
 
   _showMenu = () => {
     const navLinks = document.querySelectorAll('.nav a');
     const navMenu = document.querySelector('.nav');
 
-    if (!this.state.show) {
-      navMenu.classList.add('show');
-      navLinks.forEach(function(link) {
-        link.classList.add('show');
-      });
-      this.setState({
-        show: true
-      });
-    } else {
-      navMenu.classList.remove('show');
-      navLinks.forEach(function(link) {
-        link.classList.remove('show');
-      });
-      this.setState({
-        show: false
-      });
-    }
+    !this.state.show
+      ? (navMenu.classList.add('show'),
+        navLinks.forEach(function(link) {
+          link.classList.add('show');
+        }),
+        this.setState({
+          show: true
+        }))
+      : (navMenu.classList.remove('show'),
+        navLinks.forEach(function(link) {
+          link.classList.remove('show');
+        }),
+        this.setState({
+          show: false
+        }));
   };
 
   _getDataBlog = () => {
