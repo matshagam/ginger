@@ -11,8 +11,7 @@ export default class UserStore extends React.Component {
     this.state = {
       show: false,
       dataBlog: [],
-      dataGalery: [],
-      urlData: 'https://testapi.io/api/matshagam/data'
+      dataGalery: []
     };
   }
 
